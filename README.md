@@ -84,10 +84,36 @@ Start frontend in another terminal:
 cd frontend
 yarn start
 
+🔥 One-liner full dev setup
+
+You can run both backend and frontend with one command using concurrently
+.
+
+1. Install concurrently
+cd frontend
+yarn add -D concurrently
+
+2. Add a script in frontend/package.json
+"scripts": {
+  "dev": "concurrently \"cd ../backend && source ../.venv/bin/activate && uvicorn main:app --reload\" \"yarn start\""
+}
+
+3. Run everything
+yarn dev
+
+
+This launches:
+
+FastAPI backend on http://127.0.0.1:8000
+
+React frontend on http://localhost:3000
+
 ✅ Summary
 
-Backend → FastAPI server (uvicorn main:app --reload)
+Backend → uvicorn main:app --reload
 
-Frontend → React app (yarn start)
+Frontend → yarn start
 
-Homebrew Python users → always use a venv (python3 -m venv .venv && source .venv/bin/activate)
+Homebrew Python users → use a venv (python3 -m venv .venv && source .venv/bin/activate)
+
+All-in-one → yarn dev
