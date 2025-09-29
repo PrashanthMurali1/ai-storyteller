@@ -1,0 +1,112 @@
+/* Dark theme layout */
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0f14;
+  color: #e7edf3;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 920px;
+  margin: 2.5rem auto;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #e9eef5;
+}
+
+/* Search */
+.search-box {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0 auto 1.75rem;
+  max-width: 760px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 0.95rem 1rem;
+  border: 1px solid #2a3441;
+  background: #111823;
+  color: #e7edf3;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #94a3b8;
+}
+
+button {
+  border: none;
+  padding: 0.95rem 1.25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform 0.04s ease, background-color 0.15s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.blue {
+  background-color: #1d77ff;
+}
+button.blue:hover {
+  background-color: #1665d8;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Cards */
+.result-box {
+  margin: 1.25rem auto 1.5rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border: 1px solid #263244;
+  border-radius: 14px;
+  background: #0f1722;
+  max-width: 760px;
+}
+
+.you-line {
+  margin-top: 0;
+  color: #b7c3d4;
+}
+
+/* Story text */
+.story {
+  margin-top: 0.5rem;
+  line-height: 1.7;
+  white-space: pre-wrap;   /* keep paragraph breaks from model */
+  word-break: break-word;
+  color: #e9eef5;
+}
+
+/* Choices block — push WAY down */
+.choices {
+  margin-top: 6rem;        /* ← big vertical gap */
+  padding-top: 1.2rem;
+  border-top: 1px dashed #334155; /* clear separation */
+}
+
+.choices ul {
+  margin: 0.75rem 0 0 1.25rem;
+  padding: 0;
+}
+
+.choices li {
+  margin-bottom: 0.5rem;
+  color: #d4e0ee;
+}
