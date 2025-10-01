@@ -80,20 +80,6 @@ function App() {
     <div className="container">
       <h1>Storyteller</h1>
 
-      {/* Search */}
-      <div className="search-box">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-          placeholder="Begin or continue your story..."
-        />
-        <button onClick={handleSearch} disabled={loading} className="blue">
-          {loading ? "Generating..." : "Continue"}
-        </button>
-      </div>
-
       {/* Story results */}
       {storyHistory.map((item, idx) => (
         <div className="result-box" key={idx}>
@@ -115,6 +101,20 @@ function App() {
           )}
         </div>
       ))}
+
+      {/* Search at bottom */}
+      <div className="search-box">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          placeholder="Begin or continue your story..."
+        />
+        <button onClick={handleSearch} disabled={loading} className="blue">
+          {loading ? "Generating..." : "Continue"}
+        </button>
+      </div>
     </div>
   );
 }
