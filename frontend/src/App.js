@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 function extractNumberedOptions(text) {
@@ -54,6 +54,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [storyHistory, setStoryHistory] = useState([]);
+  const bottomRef = useRef(null);
 
   const handleSearch = async () => {
     if (!query) return;
@@ -67,7 +68,7 @@ function App() {
       const data = await res.json();
 
       const normalized = normalizeResult(data);
-      setStoryHistory((prev) => [{ query, result: normalized }, ...prev]);
+      setStoryHistory((prev) => [...prev, { query, result: normalized }]);
     } catch (err) {
       console.error(err);
     } finally {
@@ -75,6 +76,12 @@ function App() {
       setQuery("");
     }
   };
+
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [storyHistory]);
 
   return (
     <div className="container">
@@ -101,6 +108,8 @@ function App() {
           )}
         </div>
       ))}
+
+      <div ref={bottomRef} />
 
       {/* Search at bottom */}
       <div className="search-box">
